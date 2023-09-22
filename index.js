@@ -2,7 +2,7 @@ require("dotenv").config();
 let phoneNumber = process.env.PHONENUMBER;
 let password = process.env.PASSWORD;
 let baseUrl = process.env.BASEURL;
-let delayMs = Number(process.env.DELAYMS);
+let msDelay = Number(process.env.MSDELAY);
 let shopCount = Number(process.env.SHOPCOUNT);
 
 const { fakerVI: faker } = require("@faker-js/faker");
@@ -50,7 +50,7 @@ async function main() {
   for (let i = 1; i <= shopCount; i++) {
     await createShop(accessToken);
     console.log("Created", i, "shop(s).");
-    await delayMs(delayMs);
+    await delayMs(msDelay);
   }
 }
 
